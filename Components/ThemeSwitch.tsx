@@ -82,7 +82,7 @@ export default function ThemeSwitch(): ReactElement {
           height: 6rem;
           width: 6rem;
           margin-left: -1.75rem;
-          transition: 500ms ease-in-out;
+          transition: 500ms cubic-bezier(0.65, 0, 0.2, 1);
           margin-top: -0.5rem;
         }
 
