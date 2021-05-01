@@ -12,7 +12,7 @@ export default function PageLayout({ children }: Props): ReactElement {
         main {
           max-width: 800px;
           margin: 0 auto;
-          padding: 0.5rem 0;
+          padding: 0.5rem var(--container-spacing);
         }
       `}</style>
     </main>

@@ -7,12 +7,13 @@ export default function Header(): ReactElement {
       <ThemeSwitch />
       <style jsx>{`
         .header {
-          margin: 2rem auto;
+          margin: var(--container-spacing) auto;
           max-width: 900px;
           position: sticky;
           z-index: 10;
           top: 0;
           backdrop-filter: saturate(180%) blur(20px);
+          padding: 1rem var(--container-spacing);
         }
       `}</style>
     </nav>

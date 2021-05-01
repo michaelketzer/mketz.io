@@ -1,3 +1,7 @@
+:root {
+  --container-spacing: 2rem;
+}
+
 .light {
   --font-color: #434343;
   --font-color-header: #232323;
@@ -22,6 +26,8 @@ body,
 html {
   padding: 0;
   margin: 0;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 html {
@@ -39,4 +45,15 @@ body {
   --font-color-header: #EFEFEF;
   --primary: #008aff;
   --button-secondary: #343434;
+}
+
+@media only screen and (max-width: 766px) {
+  :root {
+    --container-spacing: 1rem;
+  }
+
+  body, html {
+    font-size: 16px;
+  line-height: 24px;
+  }
 }
