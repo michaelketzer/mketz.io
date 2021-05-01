@@ -42,6 +42,6 @@ jobs:
         with:
           runs: 10
           urls: |
-            https://mketz.io/
+            https://www.mketz.io/
           serverBaseUrl: ${{ secrets.LHCI_SERVER_URL }}
           serverToken: ${{ secrets.LHCI_SERVER_TOKEN }}
