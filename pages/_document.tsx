@@ -19,28 +19,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-
-          <style jsx global>{`
-            * {
-              box-sizing: border-box;
-              font-family: 'Inter', sans-serif;
-            }
-
-            body,
-            html {
-              padding: 0;
-              margin: 0;
-            }
-
-            html {
-              min-height: 100vh;
-              min-height: -webkit-fill-available;
-            }
-
-            :root {
-              --primary: #008aff;
-            }
-          `}</style>
         </body>
       </Html>
     );

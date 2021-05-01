@@ -1,0 +1,42 @@
+.light {
+  --font-color: #434343;
+  --font-color-header: #232323;
+  --primary: #008aff;
+  --button-secondary: #dedede;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: var(--font-color);
+  font-weight: 500;
+  transition: color 120ms ease-out;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--font-color-header);
+  font-weight: 300;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+body {
+  transition: background-color 120ms ease-out;
+}
+
+.dark {
+  background-color: #121212;
+  --font-color: #DCDCDC;
+  --font-color-header: #EFEFEF;
+  --primary: #008aff;
+  --button-secondary: #343434;
+}
