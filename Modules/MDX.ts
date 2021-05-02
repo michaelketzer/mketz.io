@@ -11,7 +11,11 @@ type MDXFolders = 'blog' | 'recipes';
 const root = process.cwd();
 
 export async function getFiles(type: MDXFolders): Promise<string[]> {
-  return fs.promises.readdir(path.join(root, 'data', type));
+  const dir = path.join(root, 'data', type);
+  if (fs.existsSync(dir)) {
+    return fs.promises.readdir(dir);
+  }
+  return [];
 }
 export interface MDXMetaData {
   title: string;
