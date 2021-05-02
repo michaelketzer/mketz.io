@@ -2,6 +2,7 @@ import { MDXFileProps, RecipeSpecificMetaData } from '../../../Modules/MDX';
 import { NextSeo, NextSeoProps } from 'next-seo';
 import { ReactElement, ReactNode } from 'react';
 
+import Footer from '../../Footer';
 import Header from '../../Header';
 import PageLayout from '../../PageLayout';
 import RecipeCover from './RecipeCover';
@@ -63,6 +64,8 @@ export default function RecipeLayout({ children, metaData }: Props): ReactElemen
         <RecipePeriods metaData={metaData} />
 
         <div className={'content'}>{children}</div>
+
+        <Footer />
 
         <style jsx>{`
           .shortDescription {

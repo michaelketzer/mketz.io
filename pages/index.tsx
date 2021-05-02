@@ -1,3 +1,4 @@
+import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 import { NextSeo } from 'next-seo';
 import PageLayout from '../Components/PageLayout';
@@ -29,6 +30,7 @@ export default function Home(): ReactElement {
       <Header />
       <PageLayout>
         <Presentation />
+        <Footer />
       </PageLayout>
     </>
   );

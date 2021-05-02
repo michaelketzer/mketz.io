@@ -1,5 +1,6 @@
 :root {
   --container-spacing: 2rem;
+  --list-spacing: 1rem;
 }
 
 .light {
@@ -25,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   margin-top: 1rem;
   margin-bottom: 3rem;
+  line-height: 3rem;
 }
 
 h2 {
@@ -49,6 +51,16 @@ body {
   transition: background-color 120ms ease-out;
 }
 
+a {
+  color: var(--primary)
+}
+
+hr {
+  margin: var(--container-spacing) 0;
+  border: none;
+  border-top: 1px solid var(--button-secondary);
+}
+
 .dark {
   background-color: #121212;
   --font-color: #DCDCDC;
@@ -60,6 +72,7 @@ body {
 @media only screen and (max-width: 766px) {
   :root {
     --container-spacing: 1rem;
+    --list-spacing: .5rem;
   }
 
   body, html {
