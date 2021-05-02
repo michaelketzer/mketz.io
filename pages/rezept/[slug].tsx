@@ -6,7 +6,7 @@ import { ReactElement } from 'react';
 import RecipeLayout from '../../Components/Pages/Recipe/RecipeLayout';
 import hydrate from 'next-mdx-remote/hydrate';
 
-export default function Post({ mdxSource, metaData }: MDXFileProps<RecipeSpecificMetaData>): ReactElement {
+export default function Recipe({ mdxSource, metaData }: MDXFileProps<RecipeSpecificMetaData>): ReactElement {
   const content = hydrate(mdxSource, {
     components: MDXComponents,
   });

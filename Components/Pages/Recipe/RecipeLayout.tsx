@@ -1,6 +1,6 @@
 import { MDXFileProps, RecipeSpecificMetaData } from '../../../Modules/MDX';
 import { NextSeo, NextSeoProps } from 'next-seo';
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, useEffect } from 'react';
 
 import Footer from '../../Footer';
 import Header from '../../Header';
@@ -41,6 +41,10 @@ interface Props {
 }
 
 export default function RecipeLayout({ children, metaData }: Props): ReactElement {
+  useEffect(() => {
+    fetch(`/api/recipes/register-hit?slug=${metaData.slug}`);
+  }, [metaData.slug]);
+
   return (
     <>
       <NextSeo {...recipeSeo(metaData)} />
