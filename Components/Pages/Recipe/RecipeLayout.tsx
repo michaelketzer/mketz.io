@@ -1,10 +1,11 @@
 import { MDXFileProps, RecipeSpecificMetaData } from '../../../Modules/MDX';
 import { NextSeo, NextSeoProps } from 'next-seo';
-import { ReactElement, ReactNode, useEffect } from 'react';
+import { ReactElement, ReactNode, useEffect, useState } from 'react';
 
 import Footer from '../../Footer';
 import Header from '../../Header';
 import PageLayout from '../../PageLayout';
+import RecipeCooked from './RecipeCooked';
 import RecipeCover from './RecipeCover';
 import RecipePeriods from './RecipePeriods';
 import { defaultSeo } from '../../../pages';
@@ -41,8 +42,12 @@ interface Props {
 }
 
 export default function RecipeLayout({ children, metaData }: Props): ReactElement {
+  const [hits, setHits] = useState(0);
+
   useEffect(() => {
-    fetch(`/api/recipes/register-hit?slug=${metaData.slug}`);
+    fetch(`/api/recipes/register-hit?slug=${metaData.slug}`)
+      .then((res) => res.json())
+      .then(({ hits }) => setHits(hits));
   }, [metaData.slug]);
 
   return (
@@ -62,16 +67,33 @@ export default function RecipeLayout({ children, metaData }: Props): ReactElemen
       <Header />
 
       <PageLayout>
-        <h1>{metaData.title}</h1>
+        <div className={'header'}>
+          <h1>{metaData.title}</h1>
+          <div className={'hits'}>{hits} Views</div>
+        </div>
         <RecipeCover src={metaData.cover} title={metaData.title} />
         <div className={'shortDescription'}>{metaData.description}</div>
         <RecipePeriods metaData={metaData} />
 
         <div className={'content'}>{children}</div>
 
+        <RecipeCooked title={metaData.title} url={`https://www.mketz.io/rezept/${metaData.slug}`} />
+
         <Footer />
 
         <style jsx>{`
+          .header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            grid-gap: var(--container-spacing);
+          }
+
+          .hits {
+            font-size: 0.8rem;
+            margin-top: 1.85rem;
+            flex-shrink: 0;
+          }
           .shortDescription {
             margin-top: 2rem;
           }
