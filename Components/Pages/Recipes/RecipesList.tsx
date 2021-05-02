@@ -27,7 +27,7 @@ export default function RecipesList({ recipes }: Props): ReactElement {
                 <Image src={recipe.cover} alt={recipe.title} layout={'fill'} objectFit={'cover'} />
               </div>
 
-              <h3>{recipe.title}</h3>
+              <h2>{recipe.title}</h2>
               <div className={'recipeInfo'}>{recipe.description}</div>
             </a>
           </Link>
@@ -62,6 +62,12 @@ export default function RecipesList({ recipes }: Props): ReactElement {
         .recipeInfo {
           font-weight: 400;
           font-size: 0.8rem;
+        }
+
+        h2 {
+          margin-top: 1em;
+          margin-bottom: 1em;
+          font-size: 1.17em;
         }
       `}</style>
     </div>
