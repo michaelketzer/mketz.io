@@ -7,7 +7,12 @@ import { Theme } from '../Components/ThemeSwitch';
 
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
   useEffect(() => {
-    const theme = localStorage.getItem('theme') || Theme.light;
+    let theme = localStorage.getItem('theme');
+    if (!theme) {
+      const query = '(prefers-color-scheme: dark)';
+      const match = window.matchMedia(query);
+      theme = match.media !== query || match.matches ? Theme.dark : Theme.light;
+    }
     document.querySelector('body').classList.add(theme);
   }, []);
 

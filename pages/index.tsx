@@ -1,32 +1,32 @@
 import Header from '../Components/Header';
+import { NextSeo } from 'next-seo';
 import PageLayout from '../Components/PageLayout';
+import Presentation from '../Components/Pages/Index/Presentation';
 import { ReactElement } from 'react';
 
 export default function Home(): ReactElement {
   return (
     <>
+      <NextSeo
+        title={'Michael Ketzer – Entwickler, wannabe Designer & Hobby-Koch'}
+        description={'Frontend-Entwickler, NextJS Enthusiast, Creator'}
+        canonical="https://www.mketz.io/"
+        openGraph={{
+          url: 'https://www.mketz.io/',
+          title: 'Michael Ketzer – Entwickler, wannabe Designer & Hobby-Koch',
+          description: 'Frontend-Entwickler, NextJS Enthusiast, Creator',
+          site_name: 'Michael Ketzer',
+        }}
+        twitter={{
+          handle: '@griefcode',
+          site: '@griefcode',
+          cardType: 'summary_large_image',
+        }}
+      />
+
       <Header />
       <PageLayout>
-        <h1>
-          <span role="img" aria-label={'Waving Hand'}>
-            👋
-          </span>{' '}
-          Hey, Ich bin Michael
-        </h1>
-
-        <div className={'info'}>
-          Ich bin Frontend-Entwickler, wannabe Designer und Koche gerne.{' '}
-          <span role="img" aria-label={'Slight smile'}>
-            🙂
-          </span>
-          <br />
-          <br />
-          Du hast irgendwie den Weg hierhin gefunden, die Seite befindet sich aktuell noch im Aufbau, schau gerne in
-          paar Tagen noch mal vorbei{' '}
-          <span role="img" aria-label={'Winking face'}>
-            😉
-          </span>
-        </div>
+        <Presentation />
       </PageLayout>
     </>
   );
