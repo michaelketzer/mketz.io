@@ -3,7 +3,7 @@
 }
 
 .light {
-  --font-color: #434343;
+  --font-color: #575757;
   --font-color-header: #232323;
   --primary: #008aff;
   --button-secondary: #dedede;
@@ -20,6 +20,11 @@
 h1, h2, h3, h4, h5, h6 {
   color: var(--font-color-header);
   font-weight: 300;
+}
+
+h1 {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }
 
 body,
