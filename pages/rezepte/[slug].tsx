@@ -1,7 +1,7 @@
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
 import { MDXFileProps, getFileBySlug, getFiles } from '../../Modules/MDX';
 
-import MDXComponents from '../../Components/MdxComponents';
+import MDXComponents from '../../Components/MDXComponents';
 import { ReactElement } from 'react';
 import hydrate from 'next-mdx-remote/hydrate';
 
