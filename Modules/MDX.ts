@@ -1,4 +1,4 @@
-import MDXComponents from '../Components/MdxComponents';
+import MDXComponents from '../Components/MDXComponents';
 import { MdxRemote } from 'next-mdx-remote/types';
 import fs from 'fs';
 import matter from 'gray-matter';
