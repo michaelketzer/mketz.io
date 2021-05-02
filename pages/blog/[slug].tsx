@@ -1,11 +1,11 @@
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
-import { MDXFileProps, getFileBySlug, getFiles } from '../../Modules/MDX';
+import { MDXFileProps, MDXMetaData, getFileBySlug, getFiles } from '../../Modules/MDX';
 
 import MDXComponents from '../../Components/MDXComponents';
 import { ReactElement } from 'react';
 import hydrate from 'next-mdx-remote/hydrate';
 
-export default function Post({ mdxSource }: MDXFileProps): ReactElement {
+export default function Post({ mdxSource }: MDXFileProps<MDXMetaData>): ReactElement {
   const content = hydrate(mdxSource, {
     components: MDXComponents,
   });
@@ -28,7 +28,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 
 export async function getStaticProps({
   params: { slug },
-}: GetStaticPropsContext<{ slug: string }>): Promise<GetStaticPropsResult<MDXFileProps>> {
+}: GetStaticPropsContext<{ slug: string }>): Promise<GetStaticPropsResult<MDXFileProps<MDXMetaData>>> {
   const post = await getFileBySlug('blog', slug);
 
   return { props: post };
