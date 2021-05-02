@@ -1,6 +1,7 @@
 import { AnchorHTMLAttributes, DetailedHTMLProps, ReactElement } from 'react';
 
 import Image from 'next/image';
+import IngredientsGroup from './Pages/Recipe/IngredientsGroup';
 import Link from 'next/link';
 
 const CustomLink = ({
@@ -26,6 +27,7 @@ const CustomLink = ({
 };
 
 const MDXComponents = {
+  IngredientsGroup,
   Image,
   a: CustomLink,
 };

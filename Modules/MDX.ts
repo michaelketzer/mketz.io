@@ -13,21 +13,36 @@ const root = process.cwd();
 export async function getFiles(type: MDXFolders): Promise<string[]> {
   return fs.promises.readdir(path.join(root, 'data', type));
 }
+export interface MDXMetaData {
+  title: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  cover: string;
+}
 
-export interface MDXFileProps {
+export interface RecipeSpecificMetaData extends MDXMetaData {
+  prepTime: number;
+  cookTime: number;
+  chillTime: number;
+  totalTime: number;
+}
+export interface MDXFileProps<T extends MDXMetaData> {
   metaData: {
     readingMinutes: number;
     readingTime: number;
     slug: string;
     wordCount: number;
-  };
+  } & T;
   mdxSource: MdxRemote.Source;
 }
 
-export async function getFileBySlug(type: MDXFolders, slug: string): Promise<MDXFileProps> {
+export async function getFileBySlug<T extends MDXMetaData>(type: MDXFolders, slug: string): Promise<MDXFileProps<T>> {
   const source = await fs.promises.readFile(path.join(root, 'data', type, `${slug}.mdx`), 'utf8');
 
   const { data, content } = matter(source);
+  data.datePublished = data.datePublished.toString();
+  data.dateModified = data.dateModified.toString();
   const mdxSource = await renderToString(content, { components: MDXComponents });
   const readStats = readingTime(content);
 
@@ -38,7 +53,7 @@ export async function getFileBySlug(type: MDXFolders, slug: string): Promise<MDX
       readingTime: readStats.time,
       slug: slug || null,
       wordCount: readStats.words,
-      ...data,
+      ...(data as T),
     },
   };
 }

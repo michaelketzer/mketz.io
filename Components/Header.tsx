@@ -50,6 +50,7 @@ export default function Header(): ReactElement {
         a {
           text-decoration: none;
           font-size: 1rem;
+          color: var(--font-color-header);
         }
       `}</style>
     </nav>
