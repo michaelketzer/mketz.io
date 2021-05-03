@@ -31,7 +31,7 @@ export function useRecipeLikes(
         .then(({ likes }) => {
           rewardElement?.rewardMe();
           localStorage.setItem(`recipe_liked_${slug}`, '1');
-          setLikes(likes);
+          setLikes(likes + 1);
           setLiked(true);
         });
     }
