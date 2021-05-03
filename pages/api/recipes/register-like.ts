@@ -27,7 +27,7 @@ module.exports = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const document: Document = await client.query(q.Get(q.Match(q.Index('likes_by_slug'), slug)));
     if (req.method === 'POST') {
-      await client.query(q.Update(document.ref, { data: { hits: document.data.likes + 1 } }));
+      await client.query(q.Update(document.ref, { data: { likes: document.data.likes + 1 } }));
     }
 
     likes = document.data.likes;
