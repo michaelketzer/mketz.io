@@ -30,7 +30,7 @@ jobs:
       - name: deploy
         id: deployment_prod
         uses: amondnet/vercel-action@v20
-        if: github.ref = 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID}}
