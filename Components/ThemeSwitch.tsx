@@ -15,7 +15,7 @@ export default function ThemeSwitch(): ReactElement {
 
   useEffect(() => {
     setTheme((localStorage.getItem('theme') as Theme) || Theme.light);
-    setTimeout(() => setInitialized(true), 0);
+    setTimeout(() => setInitialized(true), 20);
   }, []);
 
   const onSwitch = useCallback(() => {
