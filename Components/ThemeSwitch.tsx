@@ -10,10 +10,14 @@ export enum Theme {
 }
 
 export default function ThemeSwitch(): ReactElement {
+  const [initialized, setInitialized] = useState(false);
   const [theme, setTheme] = useState<Theme>(Theme.light);
+
   useEffect(() => {
     setTheme((localStorage.getItem('theme') as Theme) || Theme.light);
+    setTimeout(() => setInitialized(true), 0);
   }, []);
+
   const onSwitch = useCallback(() => {
     const newTheme = theme === Theme.light ? Theme.dark : Theme.light;
     setTheme(newTheme);
@@ -29,7 +33,7 @@ export default function ThemeSwitch(): ReactElement {
 
   return (
     <button aria-label={'Toggle Dark Mode'} onClick={onSwitch}>
-      <div className={cs('nightAndDay', theme)}>
+      <div className={cs('nightAndDay', theme, { initialized })}>
         <div className={'dayWrapper'}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +86,11 @@ export default function ThemeSwitch(): ReactElement {
           height: 6rem;
           width: 6rem;
           margin-left: -1.75rem;
-          transition: 500ms cubic-bezier(0.65, 0, 0.2, 1);
           margin-top: -0.5rem;
+        }
+
+        .initialized {
+          transition: 500ms cubic-bezier(0.65, 0, 0.2, 1);
         }
 
         @media (prefers-reduced-motion: reduce) {

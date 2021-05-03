@@ -14,7 +14,7 @@ export default function RecipesList({ recipes }: Props): ReactElement {
         <span role={'img'} aria-label={'cook'}>
           🧑‍🍳
         </span>{' '}
-        Hier findest du alle Rezepte die ich empfehlenswert finde!
+        Hier findest du alle Rezepte, die ich empfehlenswert finde!
       </h1>
 
       <div className={'info'}>Viel Spaß beim nachkochen!</div>
