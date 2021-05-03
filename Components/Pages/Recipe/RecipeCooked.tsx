@@ -20,8 +20,10 @@ export default function RecipeCooked({ title, url }: Props): ReactElement {
           href={`http://twitter.com/share?text=Ich habe die ${title} gekocht!&url=${url}`}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={'Share to twitter'}
+          title={'Share to twitter'}
         >
-          <button>
+          <button aria-label={'Twitter Button'}>
             <svg height={'54px'} role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path
                 fill="#FFF"
