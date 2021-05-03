@@ -93,7 +93,8 @@ export default function ThemeSwitch(): ReactElement {
           }
         }
 
-        .dark {
+        .dark,
+        [data-theme='dark'] {
           transform: rotate(180deg);
         }
 
