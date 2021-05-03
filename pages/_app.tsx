@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
       const match = window.matchMedia(query);
       theme = match.media !== query || match.matches ? Theme.dark : Theme.light;
     }
-    document.querySelector('body').classList.add(theme);
+    document.documentElement.setAttribute('data-theme', theme);
   }, []);
 
   return <Component {...pageProps} />;
