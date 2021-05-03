@@ -22,7 +22,7 @@ module.exports = async (req: NextApiRequest, res: NextApiResponse) => {
   if (process.env.NODE_ENV === 'production') {
     const doesDocExist = await client.query(q.Exists(q.Match(q.Index('likes_by_slug'), slug)));
     if (!doesDocExist) {
-      await client.query(q.Create(q.Collection('recipes'), { data: { slug: slug, likes: 0 } }));
+      await client.query(q.Create(q.Collection('recipe_likes'), { data: { slug: slug, likes: 0 } }));
     }
 
     const document: Document = await client.query(q.Get(q.Match(q.Index('likes_by_slug'), slug)));

@@ -17,12 +17,28 @@ jobs:
       - name: deploy
         id: deployment
         uses: amondnet/vercel-action@v20
+        if: github.ref != 'refs/heads/main'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
           working-directory: ./
           alias-domains: |
+            dev.mketz.io
+            ${{ steps.vars.outputs.sha }}.dev.mketz.io
+      
+      - name: deploy
+        id: deployment
+        uses: amondnet/vercel-action@v20
+        if: github.ref = 'refs/heads/main'
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-args: '--prod'
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
+          working-directory: ./
+          alias-domains: |
+            www.mketz.io
             dev.mketz.io
             ${{ steps.vars.outputs.sha }}.dev.mketz.io
 
