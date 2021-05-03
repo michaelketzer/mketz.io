@@ -22,13 +22,7 @@ export default function ThemeSwitch(): ReactElement {
     const newTheme = theme === Theme.light ? Theme.dark : Theme.light;
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    const oldTheme = theme;
-
-    setTimeout(() => {
-      const classList = document.querySelector('body').classList;
-      classList.remove(oldTheme);
-      classList.add(newTheme);
-    }, 250);
+    setTimeout(() => document.documentElement.setAttribute('data-theme', newTheme), 250);
   }, [theme]);
 
   return (

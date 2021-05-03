@@ -61,7 +61,7 @@ hr {
   border-top: 1px solid var(--button-secondary);
 }
 
-.dark {
+[data-theme="dark"] {
   background-color: #121212;
   --font-color: #DCDCDC;
   --font-color-header: #EFEFEF;

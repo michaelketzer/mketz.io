@@ -32,6 +32,11 @@ export default class MyDocument extends Document {
             rel="stylesheet preload"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700&display=swap"
           />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: 'document.documentElement.setAttribute("data-theme", localStorage.getItem("theme"))',
+            }}
+          />
         </Head>
         <body>
           <Main />
