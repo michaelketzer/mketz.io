@@ -7,6 +7,7 @@ import Header from '../../Header';
 import PageLayout from '../../PageLayout';
 import RecipeCooked from './RecipeCooked';
 import RecipeCover from './RecipeCover';
+import RecipeLike from './RecipeLike';
 import RecipePeriods from './RecipePeriods';
 import { defaultSeo } from '../../../pages';
 
@@ -67,6 +68,7 @@ export default function RecipeLayout({ children, metaData }: Props): ReactElemen
       <Header />
 
       <PageLayout>
+        <RecipeLike slug={metaData.slug} />
         <div className={'header'}>
           <h1>{metaData.title}</h1>
           <div className={'hits'}>{hits} Views</div>
