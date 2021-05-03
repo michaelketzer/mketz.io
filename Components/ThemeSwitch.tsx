@@ -86,6 +86,12 @@ export default function ThemeSwitch(): ReactElement {
           margin-top: -0.5rem;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+          .nightAndDay {
+            transition: none;
+          }
+        }
+
         .dark {
           transform: rotate(180deg);
         }

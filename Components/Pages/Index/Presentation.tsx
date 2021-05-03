@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 export default function Presentation(): ReactElement {
   return (
-    <>
+    <div>
       <h1>
         <span role="img" aria-label={'Waving Hand'}>
           👋
@@ -23,6 +23,6 @@ export default function Presentation(): ReactElement {
           😉
         </span>
       </div>
-    </>
+    </div>
   );
 }

@@ -33,6 +33,8 @@ jobs:
           runs: 10
           urls: |
             https://dev.mketz.io/
+            https://dev.mketz.io/rezepte
+            https://dev.mketz.io/rezept/burger-buns
           serverBaseUrl: ${{ secrets.LHCI_SERVER_URL }}
           serverToken: ${{ secrets.LHCI_SERVER_TOKEN }}
 
@@ -43,5 +45,7 @@ jobs:
           runs: 10
           urls: |
             https://www.mketz.io/
+            https://dev.mketz.io/rezepte
+            https://dev.mketz.io/rezept/burger-buns
           serverBaseUrl: ${{ secrets.LHCI_SERVER_URL }}
           serverToken: ${{ secrets.LHCI_SERVER_TOKEN }}
