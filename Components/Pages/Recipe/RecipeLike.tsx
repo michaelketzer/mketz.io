@@ -107,6 +107,8 @@ export default function RecipeLike({ slug }: Props): ReactElement {
           pointer-events: none;
           & svg {
             color: #fff;
+            fill: #fff;
+            stroke: #FFF;
           }
         }
 
