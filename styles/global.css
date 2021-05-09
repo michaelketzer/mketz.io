@@ -24,6 +24,7 @@
   color: var(--font-color);
   font-weight: 500;
   transition: color 120ms ease-out;
+  line-height: 1.7em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   margin-top: 1rem;
   margin-bottom: 3rem;
-  line-height: 3rem;
+  line-height: 2.6rem;
 }
 
 h2 {

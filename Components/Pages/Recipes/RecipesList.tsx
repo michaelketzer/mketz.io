@@ -69,6 +69,12 @@ export default function RecipesList({ recipes }: Props): ReactElement {
           margin-bottom: 1em;
           font-size: 1.17em;
         }
+
+        @media only screen and (max-width: 766px) {
+          .recipesGrid {
+            grid-template-columns: 1fr;
+          }
+        }
       `}</style>
     </div>
   );
