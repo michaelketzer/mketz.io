@@ -1,27 +1,34 @@
+import React, { ReactElement } from 'react';
+
 import Link from 'next/link';
-import { ReactElement } from 'react';
 import ThemeSwitch from './ThemeSwitch';
 
-export default function Header(): ReactElement {
+interface Props {
+  AdditionalHeader: React.ComponentType;
+}
+export default function Header({ AdditionalHeader }: Props): ReactElement {
   return (
-    <nav role={'navigation'} className={'header'}>
+    <nav role={'navigation'}>
       <ThemeSwitch />
 
-      <ul>
-        <li>
-          <Link href={'/'}>
-            <a>Home</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={'/rezepte'}>
-            <a>Rezepte</a>
-          </Link>
-        </li>
-      </ul>
+      <div className={'rightHeader'}>
+        <AdditionalHeader />
+        <ul>
+          <li>
+            <Link href={'/'}>
+              <a>Home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href={'/rezepte'}>
+              <a>Rezepte</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
 
       <style jsx>{`
-        .header {
+        nav {
           margin: var(--container-spacing) auto;
           max-width: 900px;
           position: sticky;
@@ -32,6 +39,11 @@ export default function Header(): ReactElement {
           display: flex;
           align-items: center;
           justify-content: space-between;
+        }
+
+        .rightHeader {
+          display: flex;
+          align-items: center;
         }
 
         ul {

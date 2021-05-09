@@ -3,6 +3,7 @@ import { GetStaticPropsResult } from 'next';
 import Header from '../Components/Header';
 import { NextSeo } from 'next-seo';
 import PageLayout from '../Components/PageLayout';
+import RSSFeed from '../Components/Pages/Recipes/RSSFeed';
 import { ReactElement } from 'react';
 import { RecipeSpecificMetaData } from '../Modules/MDX';
 import RecipesList from '../Components/Pages/Recipes/RecipesList';
@@ -41,7 +42,7 @@ export default function Rezepte({ recipes }: Props): ReactElement {
     <>
       <NextSeo {...recipesSeo} />
 
-      <Header />
+      <Header AdditionalHeader={RSSFeed} />
       <PageLayout>
         <RecipesList recipes={recipes} />
         <Footer />
