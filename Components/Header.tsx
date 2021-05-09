@@ -4,7 +4,7 @@ import Link from 'next/link';
 import ThemeSwitch from './ThemeSwitch';
 
 interface Props {
-  AdditionalHeader: React.ComponentType;
+  AdditionalHeader?: React.ComponentType;
 }
 export default function Header({ AdditionalHeader }: Props): ReactElement {
   return (
@@ -12,7 +12,7 @@ export default function Header({ AdditionalHeader }: Props): ReactElement {
       <ThemeSwitch />
 
       <div className={'rightHeader'}>
-        <AdditionalHeader />
+        {AdditionalHeader && <AdditionalHeader />}
         <ul>
           <li>
             <Link href={'/'}>
