@@ -6,7 +6,7 @@ import path from 'path';
 import readingTime from 'reading-time';
 import renderToString from 'next-mdx-remote/render-to-string';
 
-type MDXFolders = 'blog' | 'recipes';
+type MDXFolders = 'blog' | 'rezept';
 
 const root = process.cwd();
 

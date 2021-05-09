@@ -15,7 +15,7 @@ export default function Recipe({ mdxSource, metaData }: MDXFileProps<RecipeSpeci
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const posts = await getFiles('recipes');
+  const posts = await getFiles('rezept');
 
   return {
     paths: posts.map((p) => ({
@@ -30,7 +30,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 export async function getStaticProps({
   params: { slug },
 }: GetStaticPropsContext<{ slug: string }>): Promise<GetStaticPropsResult<MDXFileProps<RecipeSpecificMetaData>>> {
-  const post = await getFileBySlug<RecipeSpecificMetaData>('recipes', slug);
+  const post = await getFileBySlug<RecipeSpecificMetaData>('rezept', slug);
 
   return { props: post };
 }

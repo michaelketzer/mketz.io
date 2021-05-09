@@ -2,7 +2,7 @@ const { promises: fs } = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
-const recipesPath = path.join(process.cwd(), 'data', 'recipes');
+const recipesPath = path.join(process.cwd(), 'data', 'rezept');
 
 async function generate() {
   const recipes = await fs.readdir(recipesPath);
